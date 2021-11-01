@@ -457,5 +457,5 @@ Atlas atlas-147xil-shard-0 [primary] population> db.zipcodes.aggregate([{$match:
 [ { 'Number of zipcodes': 11 } ]
 
 4.
-Atlas atlas-147xil-shard-0 [primary] population> db.zipcodes.aggregate([{$match:{city:'ATLANTA'}},{$group:{_id:"$pop"}},{$count:"pop"}])
-[ { pop: 41 } ]
+Atlas atlas-147xil-shard-0 [primary] population> db.zipcodes.aggregate([{$match:{city:'ATLANTA'}},{$group:{_id:"$city",totalpop:{$sum:"$pop"}}}])
+[ { _id: 'ATLANTA', totalpop: 630046 } ]
